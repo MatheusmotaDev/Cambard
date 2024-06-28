@@ -24,7 +24,7 @@ class IdeaController extends Controller
 
         Idea::create($validated);
 
-        return redirect()->route('dashboard')->with('success', 'Idea created successfully !');
+        return redirect()->route('dashboard')->with('success', 'Postado com sucesso !');
     }
 
     public function destroy(Idea $idea)
@@ -33,7 +33,7 @@ class IdeaController extends Controller
 
         $idea->delete();
 
-        return redirect()->route('dashboard')->with('success', 'Idea deleted successfully !');
+        return redirect()->route('dashboard')->with('success', 'Deletado com suceso !');
     }
 
     public function edit(Idea $idea)
@@ -53,6 +53,6 @@ class IdeaController extends Controller
 
         $idea->update($validated);
 
-        return redirect()->route('ideas.show', $idea->id)->with('success', "Idea updated successfully!");
+        return redirect()->route('ideas.show', $idea->id)->with('success', "Seu post foi atualizado!");
     }
 }

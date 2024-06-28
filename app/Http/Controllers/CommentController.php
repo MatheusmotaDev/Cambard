@@ -18,6 +18,6 @@ class CommentController extends Controller
 
         Comment::create($validated);
 
-        return redirect()->route('ideas.show', $idea->id)->with('success', "Comment posted successfully!");
+        return redirect()->route('ideas.show', $idea->id)->with('success', "você comentou com sucesso!");
     }
 }
