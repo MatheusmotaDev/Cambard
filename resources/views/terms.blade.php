@@ -7,7 +7,7 @@
             @include('shared.left-sidebar')
         </div>
         <div class="col-6">
-            <h1>Terms</h1>
+            <h1>Termos de serviço</h1>
             <div>
                 Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more
                 obscure Latin

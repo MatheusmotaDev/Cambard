@@ -6,7 +6,7 @@
                 <textarea name="content" class="fs-6 form-control" rows="1"></textarea>
             </div>
             <div>
-                <button type="submit" class="btn btn-primary btn-sm"> Post Comment </button>
+                <button type="submit" class="btn btn-primary btn-sm"> Comentários do post </button>
             </div>
         </form>
     @endauth
@@ -27,6 +27,6 @@
             </div>
         </div>
     @empty
-        <p class="text-center mt-4">No Comments Found.</p>
+        <p class="text-center mt-4">Nenhum comentário encontrado.</p>
     @endforelse
 </div>

@@ -11,10 +11,10 @@
                 </div>
             </div>
             <div class="d-flex">
-                <a href="{{ route('ideas.show', $idea->id) }}"> View </a>
+                <a href="{{ route('ideas.show', $idea->id) }}"> Visualizar </a>
                 @auth()
                     @can('update', $idea)
-                        <a class="mx-2" href="{{ route('ideas.edit', $idea->id) }}"> Edit </a>
+                        <a class="mx-2" href="{{ route('ideas.edit', $idea->id) }}"> Editar </a>
                         <form method="POST" action="{{ route('ideas.destroy', $idea->id) }}">
                             @csrf
                             @method('delete')
@@ -37,7 +37,7 @@
                     @enderror
                 </div>
                 <div class="">
-                    <button type="submit" class="mb-2 btn btn-dark btn-sm"> Update </button>
+                    <button type="submit" class="mb-2 btn btn-dark btn-sm"> Atualizar </button>
                 </div>
             </form>
         @else

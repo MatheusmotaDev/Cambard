@@ -1,6 +1,6 @@
 <div class="card mt-3">
     <div class="card-header pb-0 border-0">
-        <h5 class="">Top Users</h5>
+        <h5 class="">Mais Ativos</h5>
     </div>
     <div class="card-body">
         @foreach ($topUsers as $user)

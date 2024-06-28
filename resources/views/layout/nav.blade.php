@@ -16,7 +16,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="{{ Route::is('register') ? 'active' : '' }} nav-link"
-                            href="{{ route('register') }}">Register</a>
+                            href="{{ route('register') }}">Registrar</a>
                     </li>
                 @endguest
                 @auth()
@@ -34,7 +34,7 @@
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button class="btn btn-danger btn-sm" type="submit"> Logout </button>
+                            <button class="btn btn-danger btn-sm" type="submit"> Sair </button>
                         </form>
                     </li>
                 @endauth

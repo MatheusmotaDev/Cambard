@@ -14,7 +14,7 @@
             <li class="nav-item">
                 <a class="{{ Route::is('terms') ? 'text-white bg-primary rounded' : '' }} nav-link"
                     href="{{ route('terms') }}">
-                    <span>Terms</span></a>
+                    <span>Termos de serviço</span></a>
             </li>
         </ul>
     </div>

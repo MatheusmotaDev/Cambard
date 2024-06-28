@@ -17,13 +17,13 @@
                 <div>
                     @auth()
                         @if (Auth::id() === $user->id)
-                            <a href="{{ route('users.show', $user->id) }}"> View</a>
+                            <a href="{{ route('users.show', $user->id) }}"> Visualizar</a>
                         @endif
                     @endauth
                 </div>
             </div>
             <div class="mt-4">
-                <label for="">Profile Picture</label>
+                <label for="">Foto de perfil</label>
                 <input name="image" class="form-control" type="file">
                 @error('image')
                     <span class="text-danger fs-6">{{ $message }}</span>
@@ -38,7 +38,7 @@
                     @enderror
                 </div>
 
-                <button class="btn btn-dark btn-sm mb-3 ">Save</button>
+                <button class="btn btn-dark btn-sm mb-3 ">Salvar</button>
                 @include('users.shared.user-stats')
             </div>
         </form>
