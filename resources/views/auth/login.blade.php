@@ -21,8 +21,7 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="remember-me" class="text-dark"></label><br>
-                    <input type="submit" name="submit" class="btn btn-dark btn-md" value="enviar">
+                    <input type="submit" name="submit" class="btn btn-dark btn-md" value="Enviar">
                 </div>
                 <div class="text-right mt-2">
                     <a href="/register" class="text-dark">Registre-se aqui</a>
