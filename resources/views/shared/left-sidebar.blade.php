@@ -13,14 +13,14 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ Route::is('terms') ? 'text-white bg-primary rounded' : '' }}" href="{{ route('terms') }}">
-                    <span>Termos de serviço</span>
+                    <span>Clique aqui</span>
                 </a>
             </li>
         </ul>
     </div>
     <div class="card-footer text-center py-2">
         <div class="btn-group" role="group">
-            
+
         </div>
     </div>
 </div>

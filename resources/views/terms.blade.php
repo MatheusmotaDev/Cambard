@@ -7,7 +7,7 @@
             @include('shared.left-sidebar')
         </div>
         <div class="col-12 col-md-6">
-            <h1>Termos de serviço</h1>
+            <h1>Informações gerais</h1>
             <div>
                 Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin
                 words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature,
@@ -18,8 +18,7 @@
             </div>
         </div>
         <div class="col-12 col-md-3">
-            @include('shared.search-bar')
-            @include('shared.follow-box')
+
         </div>
     </div>
 @endsection
