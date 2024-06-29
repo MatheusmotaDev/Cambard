@@ -6,7 +6,11 @@
         <div class="col-12 col-md-3">
             @include('shared.left-sidebar')
         </div>
+        <br>
+        <br>
         <div class="col-12 col-md-6">
+            <br>
+            <br>
             <h1>Informações gerais</h1>
             <div>
                 Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin

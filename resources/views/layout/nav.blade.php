@@ -2,10 +2,9 @@
     <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand d-flex align-items-center" href="/">
             <img src="{{ asset('path/to/your/logo.png') }}" alt="Logo" style="height: 30px;">
+            <span class="d-none d-lg-inline mx-2 text-white">Cambard</span>
         </a>
-        <h3 class="d-none d-lg-inline mx-auto text-center text-white" id="navbarBrandCenter">Cambard</h3>
-
-
+        <h1 class="d-none d-lg-inline mx-auto text-center text-white" id="navbarBrandCenter">Cambard</h1>
         <div class="d-flex align-items-center">
             <div class="d-lg-none">
                 @auth
@@ -28,6 +27,17 @@
                     </ul>
                 </div>
                 @endauth
+                @guest
+                <div class="dropdown">
+                    <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" id="dropdownGuest" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span>Menu</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="dropdownGuest">
+                        <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+                        <li><a class="dropdown-item" href="{{ route('register') }}">Registrar</a></li>
+                    </ul>
+                </div>
+                @endguest
             </div>
             <div class="d-none d-lg-flex">
                 @auth
@@ -50,6 +60,16 @@
                     </ul>
                 </div>
                 @endauth
+                @guest
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="{{ Route::is('login') ? 'active' : '' }} nav-link" aria-current="page" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="{{ Route::is('register') ? 'active' : '' }} nav-link" href="{{ route('register') }}">Registrar</a>
+                    </li>
+                </ul>
+                @endguest
             </div>
         </div>
     </div>
