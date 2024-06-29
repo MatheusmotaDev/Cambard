@@ -11,7 +11,8 @@
                 </div>
                 <div class="overflow-hidden">
                     <a class="h6 mb-0" href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a>
-                    <p class="mb-0 small text-truncate">{{ $user->email }}</p>
+                    <a href="#" class="fw-light nav-link fs-6 me-3"> <span class="fas fa-user me-1">
+                    </span> {{ $user->followers()->count() }} Seguidores </a>
                 </div>
             </div>
         @endforeach
