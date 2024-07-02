@@ -2,7 +2,7 @@
     <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand d-flex align-items-center" href="/">
             <img src="{{ asset('path/to/your/logo.png') }}" alt="Logo" style="height: 30px;">
-            <span class="d-none d-lg-inline mx-2 text-white">Cambard</span>
+            
         </a>
         <h1 class="d-none d-lg-inline mx-auto text-center text-white" id="navbarBrandCenter">Cambard</h1>
         <div class="d-flex align-items-center">
