@@ -1,5 +1,5 @@
 @auth
-    <div class="card mt-3">
+    <div class="card mt-3 border-0">
         <div class="card-body">
             <h4>Crie publicações</h4>
             <form action="{{ route('ideas.store') }}" method="post">
@@ -11,7 +11,7 @@
                     @enderror
                 </div>
                 <div class="text-end">
-                    <button type="submit" class="btn btn-dark">Compartilhar</button>
+                    <button type="submit" class="btn btn-dark rounded-pill">Compartilhar</button>
                 </div>
             </form>
         </div>

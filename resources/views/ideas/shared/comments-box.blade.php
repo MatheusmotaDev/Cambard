@@ -9,7 +9,7 @@
                 @enderror
             </div>
             <div>
-                <button type="submit" class="btn btn-primary btn-sm">Publicar</button>
+                <button type="submit" class="btn btn-primary btn-sm rounded-pill">Publicar</button>
             </div>
         </form>
     @else
@@ -23,7 +23,8 @@
             <div class="w-100">
                 <div class="d-flex justify-content-between">
                     <h6 class="mb-0">{{ $comment->user->name }}</h6>
-                    <small class="fs-6 text-muted">{{ $comment->created_at->diffForHumans() }}</small>
+                    <small class="fs-6 text-muted">{{ $comment->created_at->locale('pt_BR')->diffForHumans() }}
+                    </small>
                 </div>
                 <p class="fs-6 mt-1 fw-light">{{ $comment->content }}</p>
             </div>
