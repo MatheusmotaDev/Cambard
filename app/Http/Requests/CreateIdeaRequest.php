@@ -22,7 +22,9 @@ class CreateIdeaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'content' => 'required|min:3|max:240'
+            'content' => 'required|min:3|max:240',
+            'media.*' => 'file|mimes:jpeg,png,jpg,gif,mp4,mov,avi|max:20480' // 20MB max por arquivo
         ];
     }
+
 }

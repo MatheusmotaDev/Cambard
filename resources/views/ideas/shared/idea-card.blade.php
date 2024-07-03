@@ -61,12 +61,19 @@
     </div>
     <div class="card-body">
         @if ($editing ?? false)
-            <form action="{{ route('ideas.update', $idea->id) }}" method="post">
+            <form action="{{ route('ideas.update', $idea->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="mb-3">
                     <textarea name="content" class="form-control" id="content" rows="3">{{ $idea->content }}</textarea>
                     @error('content')
+                        <span class="mt-2 d-block fs-6 text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="media" class="form-label">Adicione fotos ou vídeos</label>
+                    <input class="form-control" type="file" name="media[]" id="media" multiple>
+                    @error('media.*')
                         <span class="mt-2 d-block fs-6 text-danger">{{ $message }}</span>
                     @enderror
                 </div>
@@ -78,6 +85,18 @@
             <p class="fs-5 fw-normal text-muted">
                 {{ $idea->content }}
             </p>
+            @if($idea->media)
+                @foreach(json_decode($idea->media) as $media)
+                    @if(in_array(pathinfo($media, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']))
+                        <img src="{{ asset('storage/' . $media) }}" class="img-fluid mt-2" alt="Media">
+                    @elseif(in_array(pathinfo($media, PATHINFO_EXTENSION), ['mp4', 'mov', 'avi']))
+                        <video controls class="w-100 mt-2">
+                            <source src="{{ asset('storage/' . $media) }}" type="video/{{ pathinfo($media, PATHINFO_EXTENSION) }}">
+                            Your browser does not support the video tag.
+                        </video>
+                    @endif
+                @endforeach
+            @endif
         @endif
         <div class="d-flex justify-content-between">
             @include('ideas.shared.like-button')

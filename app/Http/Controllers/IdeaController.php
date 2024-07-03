@@ -17,15 +17,24 @@ class IdeaController extends Controller
     }
 
     public function store(CreateIdeaRequest $request)
-    {
-        $validated = $request->validated();
+{
+    $validated = $request->validated();
 
-        $validated['user_id'] = auth()->id();
+    $validated['user_id'] = auth()->id();
 
-        Idea::create($validated);
-
-        return redirect()->route('dashboard')->with('success', 'Postado com sucesso !');
+    // Processar arquivos de mídia
+    if ($request->hasFile('media')) {
+        $mediaPaths = [];
+        foreach ($request->file('media') as $mediaFile) {
+            $mediaPaths[] = $mediaFile->store('profile', 'public');
+        }
+        $validated['media'] = json_encode($mediaPaths); // Armazenar os caminhos das mídias como JSON
     }
+
+    Idea::create($validated);
+
+    return redirect()->route('dashboard')->with('success', 'Postado com sucesso !');
+}
 
     public function destroy(Idea $idea)
     {
@@ -46,13 +55,22 @@ class IdeaController extends Controller
     }
 
     public function update(UpdateIdeaRequest $request, Idea $idea)
-    {
-        $this->authorize('update', $idea);
+{
+    $this->authorize('update', $idea);
 
-        $validated = $request->validated();
+    $validated = $request->validated();
 
-        $idea->update($validated);
-
-        return redirect()->route('ideas.show', $idea->id)->with('success', "Seu post foi atualizado!");
+    // Processar arquivos de mídia
+    if ($request->hasFile('media')) {
+        $mediaPaths = json_decode($idea->media, true) ?? [];
+        foreach ($request->file('media') as $mediaFile) {
+            $mediaPaths[] = $mediaFile->store('profile', 'public');
+        }
+        $validated['media'] = json_encode($mediaPaths);
     }
+
+    $idea->update($validated);
+
+    return redirect()->route('ideas.show', $idea->id)->with('success', "Seu post foi atualizado!");
+}
 }

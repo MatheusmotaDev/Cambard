@@ -11,7 +11,7 @@ return new class extends Migration
      * varchar 240 char
      * likes integer 0
      * created_at
-     * updated_at 
+     * updated_at
      */
     public function up(): void
     {
@@ -20,9 +20,11 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('content');
             $table->unsignedInteger('likes')->default(0);
+            $table->json('media')->nullable(); // Adiciona coluna de mídia
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
