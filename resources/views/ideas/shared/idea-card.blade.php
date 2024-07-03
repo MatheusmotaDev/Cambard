@@ -14,7 +14,7 @@
                 <div class="dropdown">
                     <a class="btn btn-link dropdown-toggle text-decoration-none" href="#" role="button"
                         id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-bars"></i> <!-- Ícone de menu sandwich -->
+                        <i class="fas fa-bars"></i>
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -32,11 +32,10 @@
                             @csrf
                             @method('delete')
                             <button type="button" class="btn btn-danger btn-sm rounded-circle" data-bs-toggle="modal" data-bs-target="#confirmDelete{{ $idea->id }}">
-                                <i class="fas fa-times"></i> <!-- Ícone de X -->
+                                <i class="fas fa-times"></i>
                             </button>
                         </form>
 
-                        <!-- Modal de confirmação -->
                         <div class="modal fade" id="confirmDelete{{ $idea->id }}" tabindex="-1" aria-labelledby="confirmDeleteLabel{{ $idea->id }}" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -86,13 +85,13 @@
                 {{ $idea->content }}
             </p>
             @if($idea->media)
-                @foreach(json_decode($idea->media) as $media)
+                @foreach(json_decode($idea->media, true) ?? [] as $media)
                     @if(in_array(pathinfo($media, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']))
                         <img src="{{ asset('storage/' . $media) }}" class="img-fluid mt-2" alt="Media">
                     @elseif(in_array(pathinfo($media, PATHINFO_EXTENSION), ['mp4', 'mov', 'avi']))
                         <video controls class="w-100 mt-2">
                             <source src="{{ asset('storage/' . $media) }}" type="video/{{ pathinfo($media, PATHINFO_EXTENSION) }}">
-                            Your browser does not support the video tag.
+                            Seu navegador não suporta a tag de vídeo.
                         </video>
                     @endif
                 @endforeach
@@ -103,7 +102,6 @@
             <div>
                 <span class="fs-6 fw-light text-muted">
                     <span class="fas fa-clock me-1"></span>{{ $idea->created_at->locale('pt_BR')->diffForHumans() }}
-
                 </span>
             </div>
         </div>
